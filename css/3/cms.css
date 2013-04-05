@@ -26,8 +26,7 @@ CONTENTS:
 /* Breakdance point - typically this is 768 - from here on down, every column goes full-width */
 /* Colors
 ================================================== */
-/* Color 1 in the WYSIWYG editor under Styles */
-/* Color 2 in the WYSIWYG editor under Styles */
+/* Color 1 in the WYSIWYG editor under Styles *//* Color 2 in the WYSIWYG editor under Styles */
 /* Color 3 in the WYSIWYG editor under Styles */
 /* Typography
 ================================================== */
@@ -165,10 +164,6 @@ CONTENTS:
 .column.omega,
 .columns.omega {
   margin-right: 0!important;
-}
-.column.alpha.omega,
-.columns.alpha.omega {
-  margin: 0!important;
 }
 .container {
   /* Base Grid */
