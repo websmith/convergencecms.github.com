@@ -1,0 +1,239 @@
+/* MUCSSLE
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	mucssle V1.0
+	Copyright 2012, Eric Smith
+	"pump your site uuuuuup."  sorry - my only Arnold joke, I promise.
+	
+	Clearly I would be nowhere without the help of 
+	Dave Gamache and www.getskeleton.com
+	
+	Free to use under the MIT license.
+	http://www.opensource.org/licenses/mit-license.php
+	10/12/2012
+
+
+	Table of Contents
+==================================================
+	#Customize with LESS
+    --
+	#Base Grid
+    #Media Queries
+    #Clearing
+	--    
+	#Your CSS
+    #Your Media Queries
+	
+*/
+
+
+/* #Base Grid - NO REAL NEED TO MODIFY THIS SECTION
+================================================== */
+@mq1: @widest - 1;
+@mq2: @breakdance - 1;
+@column: 4.166666666%;
+@gutter: 2.083333333%;
+@numcolumns:16;
+
+
+    .container                                  { position: relative; width: @widest; margin: 0 auto; padding: 0; }
+    .column, .columns                           { float: left; display: inline; margin-left: (@gutter / 2)!important; margin-right: (@gutter / 2)!important; }
+    .row                                        { margin-bottom: @gutter; }
+
+    /* Nested Column Classes */
+    .column.alpha, .columns.alpha               { margin-left: 0!important; }
+    .column.omega, .columns.omega               { margin-right: 0!important; }
+	.column.alpha.omega, 
+	.columns.alpha.omega 						{ margin: 0!important; }
+
+    
+    .container{
+		/* Base Grid */
+		 .one.column                      { width: @column; }
+		 .columns{
+		 	&.two                     { width: @column * 2 + @gutter * 1; }
+		 	&.three                   { width: @column * 3 + @gutter * 2; }
+		 	&.four                    { width: @column * 4 + @gutter * 3; }
+		 	&.five                    { width: @column * 5 + @gutter * 4; }
+		 	&.six                     { width: @column * 6 + @gutter * 5; }
+		 	&.seven                   { width: @column * 7 + @gutter * 6; }
+		 	&.eight                   { width: @column * 8 + @gutter * 7; }
+		 	&.nine                    { width: @column * 9 + @gutter * 8; }
+		 	&.ten                     { width: @column * 10 + @gutter * 9; }
+		 	&.eleven                  { width: @column * 11 + @gutter * 10; }
+		 	&.twelve                  { width: @column * 12 + @gutter * 11; }
+		 	&.thirteen                { width: @column * 13 + @gutter * 12; }
+		 	&.fourteen                { width: @column * 14 + @gutter * 13; }
+		 	&.fifteen                 { width: @column * 15 + @gutter * 14; }
+		 	&.sixteen                 { width: @column * 16 + @gutter * 15; }
+		}
+		 .one-third.column                { width: ((@column+@gutter) * (@numcolumns - 1)) / 3; }
+		 .two-thirds.column               { width: ((((@column+@gutter) * (@numcolumns - 1)) / 3) * 2) + @gutter; }
+		
+		
+		.alpha, .omega {
+			
+			&.one.column                   { width: @column + (@gutter / 2); }
+		 	&.columns{
+		 		&.two                     { width: @column * 2 + @gutter * 1 + (@gutter / 2); }
+			 	&.three                   { width: @column * 3 + @gutter * 2 + (@gutter / 2); }
+			 	&.four                    { width: @column * 4 + @gutter * 3 + (@gutter / 2); }
+			 	&.five                    { width: @column * 5 + @gutter * 4 + (@gutter / 2); }
+		 		&.six                     { width: @column * 6 + @gutter * 5 + (@gutter / 2); }
+			 	&.seven                   { width: @column * 7 + @gutter * 6 + (@gutter / 2); }
+			 	&.eight                   { width: @column * 8 + @gutter * 7 + (@gutter / 2); }
+		 		&.nine                    { width: @column * 9 + @gutter * 8 + (@gutter / 2); }
+				&.ten                     { width: @column * 10 + @gutter * 9 + (@gutter / 2); }
+				&.eleven                  { width: @column * 11 + @gutter * 10 + (@gutter / 2); }
+				&.twelve                  { width: @column * 12 + @gutter * 11 + (@gutter / 2); }
+				&.thirteen                { width: @column * 13 + @gutter * 12 + (@gutter / 2); }
+				&.fourteen                { width: @column * 14 + @gutter * 13 + (@gutter / 2); }
+				&.fifteen                 { width: @column * 15 + @gutter * 14 + (@gutter / 2); }
+				&.sixteen                 { width: @column * 16 + @gutter * 15 + (@gutter / 2); }
+			}
+		}
+		
+		.alpha.omega {
+			
+			&.one.column                   { width: @column + @gutter; }
+		 	&.columns{
+		 		&.two                     { width: @column * 2 + @gutter * 2; }
+			 	&.three                   { width: @column * 3 + @gutter * 3; }
+			 	&.four                    { width: @column * 4 + @gutter * 4; }
+			 	&.five                    { width: @column * 5 + @gutter * 5; }
+		 		&.six                     { width: @column * 6 + @gutter * 6; }
+			 	&.seven                   { width: @column * 7 + @gutter * 7; }
+			 	&.eight                   { width: @column * 8 + @gutter * 8; }
+		 		&.nine                    { width: @column * 9 + @gutter * 9; }
+				&.ten                     { width: @column * 10 + @gutter * 10; }
+				&.eleven                  { width: @column * 11 + @gutter * 11; }
+				&.twelve                  { width: @column * 12 + @gutter * 12; }
+				&.thirteen                { width: @column * 13 + @gutter * 13; }
+				&.fourteen                { width: @column * 14 + @gutter * 14; }
+				&.fifteen                 { width: @column * 15 + @gutter * 15; }
+				&.sixteen                 { width: @column * 16 + @gutter * 16; }
+			}
+		}
+		
+		
+		
+		/* Offsets */
+		 .offset-by-half                   { padding-left: (@column + @gutter) / 2; }
+		 .offset-by-one                   { padding-left: (@column + @gutter) * 1; }
+		 .offset-by-two                   { padding-left: (@column + @gutter) * 2; }
+		 .offset-by-three                 { padding-left: (@column + @gutter) * 3; }
+		 .offset-by-four                  { padding-left: (@column + @gutter) * 4; }
+		 .offset-by-five                  { padding-left: (@column + @gutter) * 5; }
+		 .offset-by-six                   { padding-left: (@column + @gutter) * 6; }
+		 .offset-by-seven                 { padding-left: (@column + @gutter) * 7; }
+		 .offset-by-eight                 { padding-left: (@column + @gutter) * 8; }
+		 .offset-by-nine                  { padding-left: (@column + @gutter) * 9; }
+		 .offset-by-ten                   { padding-left: (@column + @gutter) * 10; }
+		 .offset-by-eleven                { padding-left: (@column + @gutter) * 11; }
+		 .offset-by-twelve                { padding-left: (@column + @gutter) * 12; }
+		 .offset-by-thirteen              { padding-left: (@column + @gutter) * 13; }
+		 .offset-by-fourteen              { padding-left: (@column + @gutter) * 14; }
+		 .offset-by-fifteen               { padding-left: (@column + @gutter) * 15; }
+	}
+
+
+/*  #Media Queries - NO REAL NEED TO MODIFY THIS SECTION
+================================================== */
+    @media only screen and (max-width: @mq1) {
+		.container{ 
+			width:100% - 2*@gutter;
+		}
+	}
+	@media only screen and (max-width: @mq2) {
+        .columns, .column { margin: 0!important; }
+
+		.container{ 
+			width:100% - 2*@gutter;
+			
+			 .column{
+			 	&.one-third,
+				&.two-thirds,
+				&.one				{ width:100%!important;}
+			}          
+			 .columns{
+				&.two,                   
+				&.three,                 
+				&.four,                  
+				&.five,                  
+				&.six,                   
+				&.seven,                 
+				&.eight,                 
+				&.nine,                  
+				&.ten,                   
+				&.eleven,                
+				&.twelve,                
+				&.thirteen,              
+				&.fourteen,              
+				&.fifteen,               
+				&.sixteen		{ width: 100%!important; }
+			}
+		}
+
+        /* Offsets */
+        .container .offset-by-half,
+        .container .offset-by-one,
+        .container .offset-by-two,
+        .container .offset-by-three,
+        .container .offset-by-four,
+        .container .offset-by-five,
+        .container .offset-by-six,
+        .container .offset-by-seven,
+        .container .offset-by-eight,
+        .container .offset-by-nine,
+        .container .offset-by-ten,
+        .container .offset-by-eleven,
+        .container .offset-by-twelve,
+        .container .offset-by-thirteen,
+        .container .offset-by-fourteen,
+        .container .offset-by-fifteen { padding-left: 0; }
+
+    }
+
+
+
+
+
+/* #Clearing - NO REAL NEED TO MODIFY THIS SECTION
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
