@@ -26,7 +26,8 @@ CONTENTS:
 /* Breakdance point - typically this is 768 - from here on down, every column goes full-width */
 /* Colors
 ================================================== */
-/* Color 1 in the WYSIWYG editor under Styles *//* Color 2 in the WYSIWYG editor under Styles */
+/* Color 1 in the WYSIWYG editor under Styles */
+/* Color 2 in the WYSIWYG editor under Styles */
 /* Color 3 in the WYSIWYG editor under Styles */
 /* Typography
 ================================================== */
@@ -7071,7 +7072,7 @@ a.back-link {
 }
 .addthis_default_style .at300b img {
   vertical-align: top;
-  margin-top: 0px;
+  margin-top: 1px;
 }
 .addthis_default_style .at300m {
   width: 16px;
@@ -7369,18 +7370,6 @@ h3.subcategoryname {
 .review-recommended-text {
   display: none;
 }
-.product-image.full-product-image img {
-  display: none;
-}
-.product-image.full-product-image img.firstimg {
-  display: block;
-}
-ul.product-image-thumbs {
-  list-style: none outside none;
-}
-ul.product-image-thumbs li {
-  float: left;
-}
 .product-no-ratings {
   color: #999999;
 }
@@ -7406,16 +7395,26 @@ ul.product-image-thumbs li {
   background: #999999;
   padding: 10px;
 }
-.full-product-image img {
+.product-images img {
+  display: none;
   max-width: 100%;
-  margin: 0 5px 5px 0;
 }
-.full-product-image img {
-  width: 100%;
+.product-images img.image-order-1 {
+  display: block;
 }
-.product-image-thumbs li img {
+.product-images .flex-control-thumbs li {
+  list-style: none;
+  display: inline-block;
+}
+.product-images .flex-control-thumbs li:hover {
+  cursor: pointer;
+}
+.product-images .flex-control-thumbs li img {
   width: auto;
   height: 64px;
+}
+.product-images .flex-direction-nav {
+  display: none;
 }
 .product-custom-field {
   padding-bottom: 1em;
@@ -7471,9 +7470,6 @@ ul.product-image-thumbs li {
 .search-result .search-result-title {
   margin: 0;
   padding: 0;
-}
-.search-result p.muted {
-  display: none;
 }
 /* SITEMAP   ///////////////////////////////////////////////////////////////////////////////// */
 ul.menu-sitemap {
@@ -7642,6 +7638,7 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 }
 .user-personal .user-itemlist h3.user-title {
   padding-top: 0;
+  line-height: 1;
 }
 /* #Media Queries
 ================================================== */

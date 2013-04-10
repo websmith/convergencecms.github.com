@@ -29,7 +29,7 @@ CONTENTS:
 
 /* Colors
 ================================================== */
-@color1:#000; /* Color 1 in the WYSIWYG editor under Styles */ 
+@color1:#000; /* Color 1 in the WYSIWYG editor under Styles */
 @color2:#555; /* Color 2 in the WYSIWYG editor under Styles */
 @color3:#aaa; /* Color 3 in the WYSIWYG editor under Styles */
 
@@ -337,7 +337,7 @@ a.back-link {
 .addthis_default_style{
 .at300b,
 .at300m {display:inline-block;float:none; padding:0;}
-.at300b img{vertical-align:top; margin-top:0px;}
+.at300b img{vertical-align:top; margin-top:1px;}
 .at300m {width:16px; height:16px;}
 }
 .addthis_toolbox.addthis_default_style .at300bs.at15t_compact {
@@ -538,14 +538,6 @@ h3.subcategoryname {clear:both;}
 }
 .product-detail-price{padding-top:0;}
 .review-recommended-text{display:none;}
-.product-image.full-product-image img {display:none;}
-.product-image.full-product-image img.firstimg {display:block;}
-ul.product-image-thumbs {
-    list-style: none outside none;
-}
-ul.product-image-thumbs li {
-    float: left;
-}
 .product-no-ratings {
     color: @notsoimportant;
 }
@@ -569,11 +561,26 @@ ul.product-image-thumbs li {
 
 .product-out-of-stock {background: @notsoimportant; padding:10px;}
 
-.full-product-image img {max-width:100%; margin:0 5px 5px 0; }
-.full-product-image img {width:100%; }
-.product-image-thumbs li{
-	img{width:auto;height:64px;}
-}
+.product-images{
+	img {
+		display:none; 
+		max-width:100%;
+		&.image-order-1 {
+			display:block;
+		}
+	}
+	.flex-control-thumbs li{
+		list-style:none;
+		display:inline-block;
+		&:hover{cursor:pointer;}
+		img{width:auto;height:64px;}
+	}
+
+	.flex-direction-nav{
+		display:none;
+	}
+ }
+
 .product-custom-field{
 	padding-bottom:1em;
 	p:last-child{
@@ -621,7 +628,6 @@ ul.product-image-thumbs li {
 	p,
 	h4,
 	.search-result-title{margin:0;padding:0;}
-	p.muted {display:none;}
 }
 
 /* SITEMAP   ///////////////////////////////////////////////////////////////////////////////// */
@@ -771,7 +777,7 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 	}
 }
 .user-personal{
-	.user-itemlist h3.user-title{padding-top:0;}
+	.user-itemlist h3.user-title{padding-top:0; line-height:1;}
 }
 
 
