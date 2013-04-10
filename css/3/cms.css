@@ -7472,6 +7472,9 @@ ul.product-image-thumbs li {
   margin: 0;
   padding: 0;
 }
+.search-result p.muted {
+  display: none;
+}
 /* SITEMAP   ///////////////////////////////////////////////////////////////////////////////// */
 ul.menu-sitemap {
   margin-left: 0;
