@@ -48,14 +48,20 @@ Copyright 2013 @mtrozzo & @thatericsmith
 	}
 }
 
+@bb3sidecol:22.7273%;
+@bb3sidecolmargin:4.5455%;
+@bb3maincol:72.72727272%;
+@bb3col:46.875%;
+@bb3colmargin:6.25%;
+
 .bb-three-col{
 	padding:0 @bb3colpad - @bbpad;
-	.bb-side-col{width:22.7273%; margin-right:4.5455%; }
+	.bb-side-col{width:@bb3sidecol; margin-right:@bb3sidecolmargin; }
 	.bb-main-col{
-		width:72.72727272%; 
+		width:@bb3maincol; 
 		.bb-col{
-			width:46.875%; 
-			margin-right:6.25%; 
+			width:@bb3col; 
+			margin-right:@bb3colmargin; 
 			&:nth-child(2n){
 				margin-right:0;
 			}
@@ -77,6 +83,14 @@ Copyright 2013 @mtrozzo & @thatericsmith
 
 .bb-two-col{
 	padding:0 @bb2colpad - @bbpad;
+	
+	.bb-side-col{
+		width:23.53%;
+		margin-right:5.8824%;
+	}
+	.bb-main-col{
+		width:70.5882%;
+	}
 	&.bb-equal-cols{
 		.bb-col{
 		 	width:47.0588%; 
@@ -99,16 +113,26 @@ Copyright 2013 @mtrozzo & @thatericsmith
 	}
 }
 
+@media only screen and (min-width:961px) {
+	.bb-one-col,
+	.bb-two-col .bb-main-col{font-size:1.5em;}
+}
+
 @media only screen and (max-width: 767px) {
 	/* on 3 and 4 col, cols inside the main col should go to full width */
-	.bb-three-col,
+	
 	.bb-four-col{
-		.bb-col,
-		.bb-side-col,
-		.bb-main-col{
-			width:auto!important; 
-			margin-right:0!important; 
-			float:none!important;
+		.bb-three-col;
+		.display-grid .display-item{
+			width:@bb3col; 
+			margin-right:@bb3colmargin!important; 
+			clear:none!important;
+			&:nth-child(2n){
+				margin-right:0!important;
+			}
+			&:nth-child(2n+1){
+				clear:both!important;
+			}
 		}
 	}
 }

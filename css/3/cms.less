@@ -56,7 +56,7 @@ CONTENTS:
 /* for some reason with LESS, you need to change this Xn value to what you chose for numperrow -working on a fix :) (default:3) */
 @sidegutter:4.651%; /* percent value between display items in a grid or an image and its fields in list view (default:4%) */
 @bottomgutter:@sidegutter; /* value between display items on the bottom (default:30px) */
-@tableimagemaxwidth:200px; /*don't let table images get out of hand, width-wise (default:200px) */
+@tableimagemaxwidth:100px; /*don't let table images get out of hand, width-wise (default:200px) */
 
 
 /* 1. RESET STYLES
@@ -143,6 +143,14 @@ CONTENTS:
 		margin:0 @sidegutter @bottomgutter 0; 
 		float:left; 
 		width:@gridwidth; 
+		
+		.display-fields{
+			margin-top:5px;
+		}
+		.field-name{
+			font-size:1.3em;
+		}
+		
 		&:nth-child(3n){
 			margin-right:0;
 		}
@@ -272,7 +280,7 @@ a.back-link {
 			margin-bottom:2*@bottomgutter;
 		}
 		.field-name{
-			padding-bottom:.2em;
+			padding-bottom:.1em;
 			font-size:2em;
 		}
 		.field-post-info {
@@ -422,7 +430,9 @@ form.form-comments {
 
 ul.filter-list{list-style:none; margin:0; padding:0;}
 
-
+#datasearch-form{
+	select,input{width:100%;}
+}
 
 /* Forms   ///////////////////////////////////////////////////////////////////////////////// */
 label.error,
@@ -430,9 +440,9 @@ label.error,
 
 /* MENUS   ///////////////////////////////////////////////////////////////////////////////// */
 
-ul.menu ul,
-ul.menu
-{margin-top:0; margin-bottom:0; padding:0; list-style:none; }
+ul.menu,
+ul.menu ul
+{margin:0; padding:0; list-style:none; }
 
 /* Photo Slideshows   ///////////////////////////////////////////////////////////////////////////////// */
 
@@ -494,9 +504,6 @@ ul.menu
 		font-size:1.3em;
 	}
 	&.display-grid{
-		.field-name{
-			font-size:1.3em;
-		}
 		.field-price{
 			color: @notsoimportant;
 		}
@@ -593,6 +600,16 @@ h3.subcategoryname {clear:both;}
 	}
 }
 
+.product-variant-table{
+	td{
+		vertical-align:middle;
+		&.product-col-qty{
+			.input-append{
+				margin-bottom:0;
+			}
+		}
+	}
+}
 
 
 /* BREADCRUMB   ///////////////////////////////////////////////////////////////////////////////// */
@@ -620,6 +637,9 @@ h3.subcategoryname {clear:both;}
 		}
 	}
 }
+.search-result-url{
+	color:@notsoimportant;
+}
 .search-results-title{
 	color:@lightborder;
 	font-weight:normal;
@@ -632,10 +652,10 @@ h3.subcategoryname {clear:both;}
 }
 
 /* SITEMAP   ///////////////////////////////////////////////////////////////////////////////// */
-ul.menu-sitemap {
+ul.menu-type-sitemap {
     margin-left: 0;
 }
-ul.menu-sitemap li ul {
+ul.menu-type-sitemap li ul {
     margin-left: @bottomgutter;
 }
 
@@ -705,7 +725,34 @@ table#bithtml_tbl {
 
 /* USERS   ///////////////////////////////////////////////////////////////////////////////// */
 
+.userlist{
+	&.display-grid{
+		.field-name {
+			font-size:1.3em;
+			margin-bottom:4px;
+		}
+	}
+	&.display-grid,
+	&.display-list{
+		.field-slug,
+		.field-company,
+		.field-email,
+		.field-address,
+		.field-address2,
+		.field-city-state-zip,
+		.field-country,
+		.field-phone{
+			color: @notsoimportant;
+			font-size: 85%;
+		}
+	}
+	.field-country,
+	.field-slug{
+		display:none;
+	}
+}
 
+/* USER ACCOUNTS   ///////////////////////////////////////////////////////////////////////////////// */
 .user-account-section table{}
 .user-account-section table {border-width:0px; width:100%;}
 
@@ -713,7 +760,7 @@ table#bithtml_tbl {
 
 .user-itemlist .full-item li .fieldname {color:@notsoimportant;}
 
-.user-personal address span ,
+.user-personal address span,
 .account-info address span {
     display: block;
 }
@@ -725,16 +772,6 @@ table#bithtml_tbl {
 .file-uploaded-box img{
 	width:100%;
 }
-
-.form-fields .form-item label.threepiecelabel2,
-.form-fields .form-item input.threepieceinput1 {font-weight:normal; font-size:11px;font-family:"Courier New", Courier, monospace!important; display:inline; float:none;}
-.form-fields .form-item label.threepiecelabel2{ margin-right:0px;}
-.form-fields .form-item input.threepieceinput1{width:110px;}
-
-ul.user-menu li {display:inline-block;padding:10px;}
-
-ul.itemlist-stores li.full-item li.item-photo img {width:100%;}
-
 
 /* account table styles */
 
