@@ -408,7 +408,7 @@ CONTENTS:
   .container .column.one-third,
   .container .column.two-thirds,
   .container .column.one {
-    width: 100%!important;
+    width: 100%;
   }
   .container .columns.two,
   .container .columns.three,
@@ -425,7 +425,47 @@ CONTENTS:
   .container .columns.fourteen,
   .container .columns.fifteen,
   .container .columns.sixteen {
-    width: 100%!important;
+    width: 100%;
+  }
+  .container .alpha.column.one-third,
+  .container .omega.column.one-third,
+  .container .alpha.column.two-thirds,
+  .container .omega.column.two-thirds,
+  .container .alpha.column.one,
+  .container .omega.column.one {
+    width: 100%;
+  }
+  .container .alpha .columns.two,
+  .container .omega .columns.two,
+  .container .alpha .columns.three,
+  .container .omega .columns.three,
+  .container .alpha .columns.four,
+  .container .omega .columns.four,
+  .container .alpha .columns.five,
+  .container .omega .columns.five,
+  .container .alpha .columns.six,
+  .container .omega .columns.six,
+  .container .alpha .columns.seven,
+  .container .omega .columns.seven,
+  .container .alpha .columns.eight,
+  .container .omega .columns.eight,
+  .container .alpha .columns.nine,
+  .container .omega .columns.nine,
+  .container .alpha .columns.ten,
+  .container .omega .columns.ten,
+  .container .alpha .columns.eleven,
+  .container .omega .columns.eleven,
+  .container .alpha .columns.twelve,
+  .container .omega .columns.twelve,
+  .container .alpha .columns.thirteen,
+  .container .omega .columns.thirteen,
+  .container .alpha .columns.fourteen,
+  .container .omega .columns.fourteen,
+  .container .alpha .columns.fifteen,
+  .container .omega .columns.fifteen,
+  .container .alpha .columns.sixteen,
+  .container .omega .columns.sixteen {
+    width: 100%;
   }
   /* Offsets */
   .container .offset-by-half,

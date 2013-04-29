@@ -121,7 +121,7 @@
 		
 		
 		/* Offsets */
-		 .offset-by-half                   { padding-left: (@column + @gutter) / 2; }
+		 .offset-by-half                  { padding-left: (@column + @gutter) / 2; }
 		 .offset-by-one                   { padding-left: (@column + @gutter) * 1; }
 		 .offset-by-two                   { padding-left: (@column + @gutter) * 2; }
 		 .offset-by-three                 { padding-left: (@column + @gutter) * 3; }
@@ -156,7 +156,7 @@
 			 .column{
 			 	&.one-third,
 				&.two-thirds,
-				&.one				{ width:100%!important;}
+				&.one					{ width:100%;}
 			}          
 			 .columns{
 				&.two,                   
@@ -173,8 +173,36 @@
 				&.thirteen,              
 				&.fourteen,              
 				&.fifteen,               
-				&.sixteen		{ width: 100%!important; }
+				&.sixteen				{ width: 100%; }
 			}
+			.alpha, .omega {
+				&.column{
+			 		&.one-third,
+					&.two-thirds,
+					&.one				{ width:100%; }
+				}
+			}
+			.alpha, .omega {
+				.columns{
+					&.two,                   
+					&.three,                 
+					&.four,                  
+					&.five,                  
+					&.six,                   
+					&.seven,                 
+					&.eight,                 
+					&.nine,                  
+					&.ten,                   
+					&.eleven,                
+					&.twelve,                
+					&.thirteen,              
+					&.fourteen,              
+					&.fifteen,               
+					&.sixteen			{ width: 100%; }
+				}
+			}
+			
+				
 		}
 
         /* Offsets */
