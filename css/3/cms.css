@@ -7670,6 +7670,10 @@ h3.subcategoryname {
 .product-detail-price {
   padding-top: 0;
 }
+.product-compare-price {
+  color: #999999;
+  text-decoration: line-through;
+}
 .review-recommended-text {
   display: none;
 }
