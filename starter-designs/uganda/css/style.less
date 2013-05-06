@@ -1,0 +1,646 @@
+/* LESS */
+
+
+
+
+/* 1. BASE STYLES 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+*/
+
+
+/* COLORS  ////////////////////////////////////////////////////////// */
+
+
+@dk-gray: #333;
+@md-gray: #666;
+@lt-gray: #CCC;
+@orange: #eb9929;
+@dk-orange: #e1450c;
+@lightest: #FFF;
+
+// Buttons - Isolating the Bootstrap Button Colors/Mixins to re-color Buttons
+
+// Button Variables
+// -------------------------
+@btnTextColor: 						#333;
+@btnBackground:                     #fff;
+@btnBackgroundHighlight:            darken(#fff, 10%);
+@btnBorder:                         #ccc;
+
+@btnPrimaryBackground:              @orange;
+@btnPrimaryBackgroundHighlight:     @orange;
+
+@btnInfoBackground:                 #2782F5;
+@btnInfoBackgroundHighlight:        #2774CC;
+
+@btnSuccessBackground:              #5EBF00;
+@btnSuccessBackgroundHighlight:     #50A001;
+
+@btnWarningBackground:              #ffae55;
+@btnWarningBackgroundHighlight:     darken(@btnWarningBackground, 15%);
+
+@btnDangerBackground:               #D90101;
+@btnDangerBackgroundHighlight:      #D70000;
+
+@btnInverseBackground:              #444;
+@btnInverseBackgroundHighlight:     #222;
+
+
+// ------------------------------------
+// ------------------------------------
+// SHOULD NOT NEED TO EDIT BELOW!
+// ------------------------------------
+// ------------------------------------
+// Reset filters for IE
+.reset-filter() {
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+// Gradients
+#gradient {
+  .horizontal(@startColor: #555, @endColor: #333) {
+    background-color: @endColor;
+    background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(left, @startColor, @endColor); // Opera 11.10
+    background-image: linear-gradient(to right, @startColor, @endColor); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@startColor),argb(@endColor))); // IE9 and down
+  }
+  .vertical(@startColor: #555, @endColor: #333) {
+    background-color: mix(@startColor, @endColor, 60%);
+    background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+    background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+  }
+}
+// Gradient Bar Colors for buttons and alerts
+.gradientBar(@primaryColor, @secondaryColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: @textColor;
+  text-shadow: @textShadow;
+  #gradient > .vertical(@primaryColor, @secondaryColor);
+  border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
+}
+// Button backgrounds
+// ------------------
+.buttonBackground(@startColor, @endColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+// gradientBar will set the background to a pleasing blend of these, to support IE<=9
+.gradientBar(@startColor, @endColor, @textColor, @textShadow);
+*background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  .reset-filter();
+
+  // in these cases the gradient won't cover the background, so we override
+&:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+color: @textColor;
+background-color: @endColor;
+*background-color: darken(@endColor, 5%);
+}
+
+// IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+  &:active,
+  &.active {
+    background-color: darken(@endColor, 10%) e("\9");
+  }
+}
+
+
+
+
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @btnTextColor, 0 1px 1px rgba(255,255,255,.75));
+  border: 1px solid @btnBorder;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-bottom-color: darken(@btnBorder, 10%);
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    color: @btnTextColor;
+  }
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Set the backgrounds
+// -------------------------
+.btn-primary {
+  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+}
+// Warning appears are orange
+.btn-warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+// Danger and error appear as red
+.btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+// Info appears as a neutral blue
+.btn-info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
+
+// Nav button on mobile
+.navbar .btn-navbar .icon-bar {
+  background-color: @md-gray;
+  -webkit-border-radius: 1px;
+     -moz-border-radius: 1px;
+          border-radius: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* TRANSITIONS  ////////////////////////////////////////////////////////// */
+
+.color-in {
+	-webkit-transition: color .05s linear;
+ 	-moz-transition: color .05s linear;
+	-o-transition: color .05s linear;
+	transition: color .05s linear;
+}
+.color-out {
+	-webkit-transition:color .25s linear;
+ 	-moz-transition: color .25s linear;
+	-o-transition: color .25s linear;
+	transition: color .25s linear;
+}
+.background-in {
+	-webkit-transition: background-color .05s linear;
+ 	-moz-transition: background-color .05s linear;
+	-o-transition: background-color .05s linear;
+	transition: background-color .05s linear;
+}
+.background-out {
+	-webkit-transition: background-color .25s linear;
+ 	-moz-transition: background-color .25s linear;
+	-o-transition: background-color .25s linear;
+	transition: background-color .25s linear;
+}
+
+
+/* BACKGROUNDS, CORNERS  ////////////////////////////////////////////////////////// */
+
+
+.white {background:#FFF;}
+.white50 {background:#a7a7a7;/*IE*/ background:rgba(255,255,255,.5);}
+.white30 {background:darken(#fff,70%);/*IE*/ background:rgba(255,255,255,.3);}
+
+.gradient {
+   background-color: @dk-gray;
+   background-image: -webkit-linear-gradient(top, @dk-gray, @md-gray) ;
+   background-image:    -moz-linear-gradient(top, @dk-gray, @md-gray) ;
+   background-image:     -ms-linear-gradient(top, @dk-gray, @md-gray) ;
+   background-image:      -o-linear-gradient(top, @dk-gray, @md-gray) ;
+   background-repeat:no-repeat;
+   background-attachment:fixed;
+}
+.button-gradient {   
+   &:hover{
+	   background-color: @dk-orange;
+	   background-image: -webkit-linear-gradient(top, @dk-orange, @dk-orange) ;
+	   background-image:    -moz-linear-gradient(top, @dk-orange, @dk-orange) ;
+	   background-image:     -ms-linear-gradient(top, @dk-orange, @dk-orange) ;
+	   background-image:      -o-linear-gradient(top, @dk-orange, @dk-orange) ;
+   }
+}
+
+@borderradius: 7px;
+
+.corners {
+	border-radius:@borderradius;
+	-moz-border-radius:@borderradius;
+	-webkit-border-radius:@borderradius;
+	-o-border-radius:@borderradius;
+}
+
+#slideshow, .container-background, #main #content, .box, span.c-caption, .screen, header nav ul.menu-level0 li a, .hangDate {.corners;}
+
+
+
+
+/* TEXT STYLES ////////////////////////////////////////////////////////// */  
+
+
+.museo { font-family: "museo-sans",Arial, Helvetica, sans-serif; font-weight:300;}
+.bello { font-family: "bello-pro",Arial, Helvetica, sans-serif; font-weight:300;}
+.light {font-weight:100;}
+.normal {font-weight:300;}
+.bold {font-weight:500;}
+.heavy {font-weight:700;}
+.ultra {font-weight:900;} 
+
+h1, 	
+h2,
+h3	{.bold;}
+
+a {color:@orange; text-decoration:none; .color-out;}
+a:hover {color:@dk-orange; text-decoration:underline; .color-in;}
+
+
+
+
+
+
+/* 2. SITE STRUCTURE & CUSTOMIZATIONS 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+*/
+
+
+/* BODY/GLOBAL //////////////////////////////////////////////////////////////////  */
+
+body {.gradient; }
+body, input, button, select, textarea {.museo;}
+
+.screen {
+	.white50;
+	padding:10px 0px;
+}
+
+button.btn-primary {
+	.button-gradient;
+}
+
+
+
+
+
+/* HEADER //////////////////////////////////////////////////////////////////  */
+
+
+header {
+	text-align: left;
+	padding:25px 0;	
+	
+	h1 {
+		text-align:left;
+		float:left;
+		display:block;
+		margin:0;
+		font-size:40px;
+		.bello;
+		
+		a, a:hover {text-decoration:none; color:@lightest;}
+		a:hover {color:@lt-gray;}
+	}
+	
+	nav {
+		float:right; 
+		padding-top:6px;
+		ul.menu {margin:0;}
+		ul.nav-pills {
+			li {
+				a {.background-out; .white30; color:@lightest;}
+				a:hover, 
+				a.active,
+				a:active,
+				a:focus {.background-in; background:@orange; color:@lightest;}
+			}
+		}
+	}
+}
+
+.site-nav{float:right;}
+.navbar .nav > li > a{
+	.background-out; 
+	.white30; 
+	color:@lightest;
+	text-shadow:none;
+	
+	&:hover, 
+	&.active,
+	&:active,
+	&:focus {.background-in; background:@orange; color:@lightest;}
+}
+
+
+
+/*  HOME /////////////////////////////////////////////////////////  */
+
+.screen-pad{
+	padding:14px 12px;
+}
+.box {
+	min-height:220px;
+	height: auto;
+
+	padding:15px;
+	.white;
+}
+.box p {
+	font-size:14px;
+	text-align:left;
+}
+ul.twitter-list{
+	li{list-style:none; padding-bottom:15px;}
+}
+
+
+/* INSIDE CONTENT //////////////////////////////////////////////// */
+
+#content {
+	padding:40px;
+	min-height:300px;
+	height: auto !important;
+	height: 300px;
+	background:@lightest;
+	
+	h1 {.heavy;}
+}
+		
+
+.imageleft img, img.imageleft {
+    float: left;
+    height: auto;
+    margin: 0 25px 20px 0;
+    padding-right: 25px;
+    width: 300px;
+	border-right: 1px solid @lt-gray;
+}
+.imageright img, img.imageright {
+    float: right;
+    height: auto;
+    margin: 0 0 25px 20px;
+    padding-left: 25px;
+    width: 300px;
+	border-left: 1px solid @lt-gray;
+}
+
+
+
+/* SIDE BAR //////////////////////////////////////////////// */
+
+
+#side {
+	min-height:150px;
+	height: auto !important;
+
+
+/* SUB NAV  */
+
+	nav {
+		padding:0 0 10px;
+		
+		a {
+			font-size:1.5em;
+			color:@lightest;
+			&:hover {color:@dk-orange;}
+			&.active {.bold;
+			}
+		}
+	}
+	
+	.side-content {
+		padding:40px 18px 0 28px;
+		
+		nav > ul {
+			margin-bottom: 30px;
+			padding: 0;
+		}
+		h6 { 
+			margin: 20px 0;
+			border-bottom:1px solid @lt-gray;
+		}
+		a {color:@lightest;}
+		a:hover {color:@dk-orange;}
+	}		
+
+}
+
+/*  PHOTOS  ////////////////////////////////////////////////  */
+.flexslider {border: 4px solid #fff; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.2); -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); -o-box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+
+
+/*  FEED, BLOGS, EVENTS  ////////////////////////////////////////////////  */
+
+
+h1.field-name.post-title {
+	font-size:2em;
+}
+.display-stack .display-item,
+.display-list .display-item {
+	border-bottom: 1px solid #cccccc;
+	margin-bottom: 2em;
+	padding-bottom: 2em;
+}
+
+.box, #side {
+	.feed-list {
+		h1.post-title {
+			font-size:1em;
+			line-height:1.2em;
+		}
+		.display-item {
+			border-bottom:none;
+			margin-bottom: 1em;
+			padding-bottom: 0;
+		}
+		.field-post-info {
+			color:@md-gray;
+			margin:0;
+		}
+	}
+}
+
+
+/*  FORMS ////////////////////////////////////////////////  */
+
+.form-actions {
+	background:none;
+	border:none;
+	margin:0;
+	padding:0;
+}
+
+.form-section-title{
+	margin-top:30px;
+}
+
+
+/*  PRODUCTS ////////////////////////////////////////////////  */
+
+.product {
+	&.display-item {}
+	.field {
+		text-align:center;
+	}
+}
+
+
+
+/*  FOOTER ////////////////////////////////////////////////  */
+
+
+footer {
+	
+	min-height:85px;
+	height: auto !important;
+	height: 85px;
+	text-align: center;
+	margin-top:10px;
+	
+
+	nav {
+		
+		ul li {
+ 	 		display: inline-block;
+	  		float: left;
+	  		margin-right: 15px;
+			 
+			a {
+				font-size:11px;
+				text-align:center;
+				text-decoration:none;
+				.bold;
+				color:@lightest;
+				&:hover {color:@orange;text-decoration:none;}
+			}
+		}
+	}
+
+	#copyright p {
+		font-size:11px;
+		line-height:11px;
+		text-align:right;
+		margin: 7px 0 0;
+		.bold;
+		color:@lightest;
+		a {color:@lightest;}
+		a, a:hover {color:@orange; text-decoration:none;}
+	}
+
+}
+
+
+
+/* 4. MEDIA QUERIES
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+*/
+
+
+
+/* Ipad H to Browser */
+@media (min-width: 1025px) {
+	#content{
+		font-size:1.3em;
+	}
+} 
+
+
+
+
+/* breakdance query*/
+@media only screen and (max-width: 767px) {
+	.screen {padding:2%;}
+	.screen-pad{padding:0;}
+	
+	header {
+		padding: 30px 0 10px;
+		h1{
+			float: none;
+			text-align: left;
+			font-size: 350%;
+				
+			img {
+				width:300px;
+			}
+		}
+		nav{float:none;}
+	}
+	.site-nav{
+		float:none;
+	}		
+	#side{
+		min-height:0;
+		
+		.side-content{
+			padding:12px;
+			nav > ul{
+				margin:0;
+			}
+			.modules {display:none;}
+		}
+	}
+	
+	#content{
+		padding:12px;
+	
+		h1{
+			font-size:2em;
+		}
+		h2{
+			font-size:1.5em;
+		}
+		h3{
+			font-size:1.35em;
+		}
+	}
+	
+	.box {margin-bottom:10px!important; min-height:0;}
+	footer nav ul li {float:none; a {font-size: .85em;}}
+	footer #copyright p {text-align:center; margin:20px 0 0;}
+
+} 
+
+
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+.c-pager {
+	left: 10px;
+}
+.form-fields .form-item label {
+   	float: none;
+    margin: 0 0 5px;
+   	text-align: left;
+}
+.form-fields .form-item select, .form-fields .form-item input {
+	float: none;
+	margin: 0 0 10px;
+	width: 90%;
+}
+form.form-module input.form-button-submit {
+	margin:0;
+}
+
+/* end media query*/} 
