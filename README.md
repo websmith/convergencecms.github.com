@@ -3,6 +3,7 @@
 We have compiled these files for you.  Want to understand how Convergence sites work?  Or possibly contribute to our default CSS?  This is a great place to do either. We're glad you're here - let us know if we can help with anything.
 
 [Convergence](http://www.convergencecms.co/)
+
 [@convergencecms](http://twitter.com/convergencecms)
 
 ## /css
