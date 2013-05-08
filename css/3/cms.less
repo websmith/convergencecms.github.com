@@ -872,6 +872,10 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 				width:46%;
 				&:nth-child(n){
 					clear:none;
+					margin-right:@sidegutter;
+				}
+				&:nth-child(2n){
+					margin-right:0;
 				}
 				&:nth-child(2n+1){
 					clear:both;
@@ -889,18 +893,13 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 		
 	}
 	@media only screen and (max-width: 349px) {
-		/* grid goes to 1 per row */
-		.display-grid .display-item{
-			width:100%;
-			margin:0;
-			clear:both;
-		}
-		
+		/* grid goes to 1 per row */		
 		.display-grid.display-gridcols-4,
 		.display-grid.display-gridcols-3,
 		.display-grid.display-gridcols-2,
 		.display-grid{
-			.display-item{
+			.display-item,
+			.display-item:nth-child(n){
 				width:100%;
 				margin:0;
 				clear:both;

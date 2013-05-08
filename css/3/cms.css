@@ -8000,6 +8000,12 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
   .display-grid.display-gridcols-3 .display-item:nth-child(n),
   .display-grid .display-item:nth-child(n) {
     clear: none;
+    margin-right: 4.651%;
+  }
+  .display-grid.display-gridcols-4 .display-item:nth-child(2n),
+  .display-grid.display-gridcols-3 .display-item:nth-child(2n),
+  .display-grid .display-item:nth-child(2n) {
+    margin-right: 0;
   }
   .display-grid.display-gridcols-4 .display-item:nth-child(2n+1),
   .display-grid.display-gridcols-3 .display-item:nth-child(2n+1),
@@ -8016,16 +8022,14 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
   }
 }
 @media only screen and (max-width: 349px) {
-  /* grid goes to 1 per row */
-  .display-grid .display-item {
-    width: 100%;
-    margin: 0;
-    clear: both;
-  }
-  .display-grid.display-gridcols-4 .display-item,
+  /* grid goes to 1 per row */.display-grid.display-gridcols-4 .display-item,
   .display-grid.display-gridcols-3 .display-item,
   .display-grid.display-gridcols-2 .display-item,
-  .display-grid .display-item {
+  .display-grid .display-item,
+  .display-grid.display-gridcols-4 .display-item:nth-child(n),
+  .display-grid.display-gridcols-3 .display-item:nth-child(n),
+  .display-grid.display-gridcols-2 .display-item:nth-child(n),
+  .display-grid .display-item:nth-child(n) {
     width: 100%;
     margin: 0;
     clear: both;
