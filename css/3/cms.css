@@ -7994,23 +7994,19 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
   .display-grid.display-gridcols-4 .display-item,
   .display-grid.display-gridcols-3 .display-item,
   .display-grid .display-item {
-    width: 46%;
-  }
-  .display-grid.display-gridcols-4 .display-item:nth-child(n),
-  .display-grid.display-gridcols-3 .display-item:nth-child(n),
-  .display-grid .display-item:nth-child(n) {
-    clear: none;
-    margin-right: 4.651%;
+    width: 47.6745%;
+    clear: none!important;
+    margin-right: 4.651% !important;
   }
   .display-grid.display-gridcols-4 .display-item:nth-child(2n),
   .display-grid.display-gridcols-3 .display-item:nth-child(2n),
   .display-grid .display-item:nth-child(2n) {
-    margin-right: 0;
+    margin-right: 0!important;
   }
   .display-grid.display-gridcols-4 .display-item:nth-child(2n+1),
   .display-grid.display-gridcols-3 .display-item:nth-child(2n+1),
   .display-grid .display-item:nth-child(2n+1) {
-    clear: both;
+    clear: both!important;
   }
   /* form comments inputs go 1 per row*/
   form.form-comments {
@@ -8025,13 +8021,9 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
   /* grid goes to 1 per row */.display-grid.display-gridcols-4 .display-item,
   .display-grid.display-gridcols-3 .display-item,
   .display-grid.display-gridcols-2 .display-item,
-  .display-grid .display-item,
-  .display-grid.display-gridcols-4 .display-item:nth-child(n),
-  .display-grid.display-gridcols-3 .display-item:nth-child(n),
-  .display-grid.display-gridcols-2 .display-item:nth-child(n),
-  .display-grid .display-item:nth-child(n) {
+  .display-grid .display-item {
     width: 100%;
-    margin: 0;
-    clear: both;
+    margin: 0!important;
+    clear: both!important;
   }
 }

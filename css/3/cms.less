@@ -869,16 +869,15 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 		.display-grid.display-gridcols-3,
 		.display-grid{
 			.display-item{
-				width:46%;
-				&:nth-child(n){
-					clear:none;
-					margin-right:@sidegutter;
-				}
+				width:(100 - (1 * @sidegutter)) / 2;
+				clear:none!important;
+				margin-right:@sidegutter!important;
+				
 				&:nth-child(2n){
-					margin-right:0;
+					margin-right:0!important;
 				}
 				&:nth-child(2n+1){
-					clear:both;
+					clear:both!important;
 				}
 			}
 		}
@@ -898,11 +897,10 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 		.display-grid.display-gridcols-3,
 		.display-grid.display-gridcols-2,
 		.display-grid{
-			.display-item,
-			.display-item:nth-child(n){
+			.display-item{
 				width:100%;
-				margin:0;
-				clear:both;
+				margin:0!important;
+				clear:both!important;
 			}
 		}
 	}
