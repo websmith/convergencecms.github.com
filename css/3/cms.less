@@ -865,13 +865,17 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 	@media only screen and (max-width: 499px) {
 		/* grid goes to 2 per row */
-		.display-grid .display-item{
-			width:46%;
-			&:nth-child(n){
-				clear:none;
-			}
-			&:nth-child(2n+1){
-				clear:both;
+		.display-grid.display-gridcols-4,
+		.display-grid.display-gridcols-3,
+		.display-grid{
+			.display-item{
+				width:46%;
+				&:nth-child(n){
+					clear:none;
+				}
+				&:nth-child(2n+1){
+					clear:both;
+				}
 			}
 		}
 		
@@ -890,6 +894,17 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 			width:100%;
 			margin:0;
 			clear:both;
+		}
+		
+		.display-grid.display-gridcols-4,
+		.display-grid.display-gridcols-3,
+		.display-grid.display-gridcols-2,
+		.display-grid{
+			.display-item{
+				width:100%;
+				margin:0;
+				clear:both;
+			}
 		}
 	}
 

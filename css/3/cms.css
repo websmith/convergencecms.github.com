@@ -7991,12 +7991,18 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 499px) {
   /* grid goes to 2 per row */
+  .display-grid.display-gridcols-4 .display-item,
+  .display-grid.display-gridcols-3 .display-item,
   .display-grid .display-item {
     width: 46%;
   }
+  .display-grid.display-gridcols-4 .display-item:nth-child(n),
+  .display-grid.display-gridcols-3 .display-item:nth-child(n),
   .display-grid .display-item:nth-child(n) {
     clear: none;
   }
+  .display-grid.display-gridcols-4 .display-item:nth-child(2n+1),
+  .display-grid.display-gridcols-3 .display-item:nth-child(2n+1),
   .display-grid .display-item:nth-child(2n+1) {
     clear: both;
   }
@@ -8011,6 +8017,14 @@ table.account-subscription-list.modifying-subscription tr.this-row a#undo-modifi
 }
 @media only screen and (max-width: 349px) {
   /* grid goes to 1 per row */
+  .display-grid .display-item {
+    width: 100%;
+    margin: 0;
+    clear: both;
+  }
+  .display-grid.display-gridcols-4 .display-item,
+  .display-grid.display-gridcols-3 .display-item,
+  .display-grid.display-gridcols-2 .display-item,
   .display-grid .display-item {
     width: 100%;
     margin: 0;
